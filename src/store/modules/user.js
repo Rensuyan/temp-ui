@@ -1,4 +1,4 @@
-import { login, logout, getInfo } from '@/api/user'
+import { login, logout, getInfo ,loginByUsername} from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import { resetRouter } from '@/router'
 
@@ -28,6 +28,19 @@ const mutations = {
 }
 
 const actions = {
+  // 根据用户名登录
+  loginByUsername({ commit }, userInfo) {
+    return new Promise((resolve, reject) => {
+      loginByUsername(userInfo.username, userInfo.password, userInfo.code, userInfo.randomStr).then(response => {
+        commit('SET_TOKEN', response.access_token)
+        commit('SET_NAME', response.username)
+        setToken( response.access_token)
+        resolve()
+      }).catch(error => {
+        reject(error)
+      })
+    })
+  },
   // user login
   login({ commit }, userInfo) {
     const { username, password } = userInfo
@@ -94,4 +107,3 @@ export default {
   mutations,
   actions
 }
-

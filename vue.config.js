@@ -6,6 +6,7 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
+const url = 'http://192.168.105.89:9999'
 const name = defaultSettings.title || 'vue Admin Template' // page title
 
 // If your port is set to 80,
@@ -36,7 +37,24 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    before: require('./mock/mock-server.js')
+    //反向代理设置
+    proxy: {
+      '/olm-biz': {
+        target: url,
+        ws: true,
+        pathRewrite: {
+          '^/olm-biz': '/olm-biz'
+        }
+      },
+      '/auth': {
+        target: url,
+        ws: true,
+        pathRewrite: {
+          '^/auth': '/auth'
+        }
+      },
+    }
+   // before: require('./mock/mock-server.js')
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
