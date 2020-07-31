@@ -34,7 +34,7 @@ const actions = {
       loginByUsername(userInfo.username, userInfo.password, userInfo.code, userInfo.randomStr).then(response => {
         commit('SET_TOKEN', response.access_token)
         commit('SET_NAME', response.username)
-        setToken( response.access_token)
+        setToken(response.access_token)
         resolve()
       }).catch(error => {
         reject(error)
