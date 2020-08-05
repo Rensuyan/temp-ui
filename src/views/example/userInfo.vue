@@ -10,11 +10,11 @@ import { mapGetters } from 'vuex'
 
 export default {
   created() {
-    console.log(this.$store.getters["name"])
+    console.log(this.$store.getters['name'])
   },
   computed: {
     ...mapGetters([
-      'name','token'
+      'name', 'token'
     ])
   }
 }

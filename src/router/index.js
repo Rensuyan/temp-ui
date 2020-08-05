@@ -31,92 +31,98 @@ import Layout from '@/layout'
  * all roles can be accessed
  */
 export const constantRoutes = [{
-    path: '/login',
-    component: () => import('@/views/login/index'),
-    hidden: true
-  },
+  path: '/login',
+  component: () => import('@/views/login/index'),
+  hidden: true
+},
 
-  {
-    path: '/404',
-    component: () => import('@/views/404'),
-    hidden: true
-  },
+{
+  path: '/404',
+  component: () => import('@/views/404'),
+  hidden: true
+},
 
-  {
-    path: '/',
-    component: Layout,
-    redirect: '/dashboard',
-    children: [{
-      path: 'dashboard',
-      name: '概览',
-      component: () => import('@/views/dashboard/index'),
-      meta: {
-        title: '概览',
-        icon: 'dashboard'
-      }
-    }]
-  },
-  {
-    path: '/form',
-    component: Layout,
-    children: [{
-      path: 'index',
-      name: '表单',
-      component: () => import('@/views/form/index'),
-      meta: {
-        title: '表单',
-        icon: 'form'
-      }
-    }]
-  },
-  {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/table',
-    name: '页面',
+{
+  path: '/',
+  component: Layout,
+  redirect: '/dashboard',
+  children: [{
+    path: 'dashboard',
+    name: '概览',
+    component: () => import('@/views/dashboard/index'),
     meta: {
-      title: 'Example',
-      icon: 'el-icon-s-help'
-    },
-    children: [{
-        path: 'table',
-        name: 'table',
-        component: () => import('@/views/example/table'),
-        meta: {
-          title: '表格',
-          icon: 'table'
-        }
-      },
-      {
-        path: 'tree',
-        name: 'tree',
-        component: () => import('@/views/example/tree'),
-        meta: {
-          title: '树',
-          icon: 'tree'
-        }
-      },
-      {
-        path: 'userInfo',
-        name: 'userInfo',
-        component: () => import('@/views/example/userInfo'),
-        meta: {
-          title: '用户信息',
-          icon: 'tree'
-        }
-      }
-    ]
+      title: '概览',
+      icon: 'dashboard'
+    }
+  }]
+},
+{
+  path: '/form',
+  component: Layout,
+  children: [{
+    path: 'index',
+    name: '表单',
+    component: () => import('@/views/form/index'),
+    meta: {
+      title: '表单',
+      icon: 'form'
+    }
+  }]
+},
+{
+  path: '/example',
+  component: Layout,
+  redirect: '/example/table',
+  name: '页面',
+  meta: {
+    title: 'Example',
+    icon: 'el-icon-s-help'
   },
-
-
-
-
-  // 404 page must be placed at the end !!!
+  children: [{
+    path: 'table',
+    name: 'table',
+    component: () => import('@/views/example/table'),
+    meta: {
+      title: '表格',
+      icon: ''
+    }
+  },
   {
-    path: '*',
-    redirect: '/404',
-    hidden: true
+    path: 'charts',
+    name: 'charts',
+    component: () => import('@/views/example/charts'),
+    meta: {
+      title: '图表',
+      icon: ''
+    }
+  },
+  {
+    path: 'tree',
+    name: 'tree',
+    component: () => import('@/views/example/tree'),
+    meta: {
+      title: '树',
+      icon: ''
+    }
+  },
+  {
+    path: 'userInfo',
+    name: 'userInfo',
+    component: () => import('@/views/example/userInfo'),
+    meta: {
+      title: '用户信息',
+      icon: ''
+    }
   }
+  ]
+},
+
+// 404 page must be placed at the end !!!
+{
+  path: '*',
+  redirect: '/404',
+  hidden: true
+}
 ]
 
 const createRouter = () => new Router({

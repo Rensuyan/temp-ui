@@ -16,11 +16,11 @@ export function getInfo(token) {
   })
 }
 
-export function logout() { 
+export function logout() {
   return request({
-			method: "delete",
-			url: "/auth/token/logout",
-	})
+    method: 'delete',
+    url: '/auth/token/logout'
+  })
 }
 
 export function loginByUsername(username, password, code, randomStr) {

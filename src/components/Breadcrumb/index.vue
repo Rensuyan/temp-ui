@@ -29,10 +29,10 @@ export default {
   methods: {
     getBreadcrumb() {
       // only show routes with meta.title
-      let matched = this.$route.matched.filter(item => item.meta && item.meta.title)
+      const matched = this.$route.matched.filter(item => item.meta && item.meta.title)
       const first = matched[0]
 
-      /*if (!this.isDashboard(first)) {
+      /* if (!this.isDashboard(first)) {
         matched = [{ path: '/dashboard', meta: { title: 'Dashboard' }}].concat(matched)
       }*/
 
@@ -43,7 +43,7 @@ export default {
       if (!name) {
         return false
       }
-      //return name.trim().toLocaleLowerCase() === 'Dashboard'.toLocaleLowerCase()
+      // return name.trim().toLocaleLowerCase() === 'Dashboard'.toLocaleLowerCase()
     },
     pathCompile(path) {
       // To solve this problem https://github.com/PanJiaChen/vue-element-admin/issues/561
