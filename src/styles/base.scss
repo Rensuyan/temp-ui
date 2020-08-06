@@ -2,9 +2,14 @@
 .app-container{
   padding: 10px;
 }
+.main-container{
+  background: #ebf2fd;
+}
 //字体
+body,
 .el-card{
    font-size: 14px;
+   color: #333;
 }
 //card 卡片
 .el-card{
@@ -26,4 +31,9 @@
 
 .el-row+.el-row{
   margin-top: 5px;
+}
+//导航
+.el-submenu .el-menu-item{
+  height: 40px;
+  line-height: 40px;
 }

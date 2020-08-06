@@ -6,7 +6,7 @@ func.prototype.init = function(type) {
   switch (type) {
     case 1:
       //百度
-      this.mObj = bmap
+      this.mObj = new bmap()
       break;
     case 0:
       //高德
@@ -15,7 +15,7 @@ func.prototype.init = function(type) {
       //百度3D
       break;
     default:
-      this.mObj = bmap
+      this.mObj = new bmap()
   }
 }
 //初始化地图

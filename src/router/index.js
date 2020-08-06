@@ -70,7 +70,7 @@ export const constantRoutes = [{
     name: 'table',
     component: () => import('@/views/example/table'),
     meta: {
-      title: '表格',
+      title: '搜索分页表格',
       icon: ''
     }
   },
@@ -84,20 +84,29 @@ export const constantRoutes = [{
     }
   },
   {
+    path: 'panels',
+    name: 'panels',
+    component: () => import('@/views/example/panels'),
+    meta: {
+      title: '卡片面板',
+      icon: ''
+    }
+  },
+  {
+    path: 'list',
+    name: 'list',
+    component: () => import('@/views/example/list'),
+    meta: {
+      title: '列表',
+      icon: ''
+    }
+  },
+  {
     path: 'tree',
     name: 'tree',
     component: () => import('@/views/example/tree'),
     meta: {
       title: '树',
-      icon: ''
-    }
-  },
-  {
-    path: 'userInfo',
-    name: 'userInfo',
-    component: () => import('@/views/example/userInfo'),
-    meta: {
-      title: '用户信息',
       icon: ''
     }
   }
