@@ -52,20 +52,7 @@ export const constantRoutes = [{
     component: () => import('@/views/dashboard/index'),
     meta: {
       title: '概览',
-      icon: 'dashboard'
-    }
-  }]
-},
-{
-  path: '/form',
-  component: Layout,
-  children: [{
-    path: 'index',
-    name: '表单',
-    component: () => import('@/views/form/index'),
-    meta: {
-      title: '表单',
-      icon: 'form'
+      icon: 'el-icon-monitor'
     }
   }]
 },
@@ -75,8 +62,8 @@ export const constantRoutes = [{
   redirect: '/example/table',
   name: '页面',
   meta: {
-    title: 'Example',
-    icon: 'el-icon-s-help'
+    title: '页面',
+    icon: 'el-icon-tickets'
   },
   children: [{
     path: 'table',
@@ -88,11 +75,11 @@ export const constantRoutes = [{
     }
   },
   {
-    path: 'charts',
-    name: 'charts',
-    component: () => import('@/views/example/charts'),
+    path: 'form',
+    name: 'form',
+    component: () => import('@/views/example/form'),
     meta: {
-      title: '图表',
+      title: '表单',
       icon: ''
     }
   },
@@ -116,7 +103,47 @@ export const constantRoutes = [{
   }
   ]
 },
-
+{
+  path: '/charts',
+  component: Layout,
+  children: [{
+    path: 'charts',
+    name: 'charts',
+    component: () => import('@/views/charts/index'),
+    meta: {
+    title: '图表',
+    icon: 'el-icon-pie-chart'
+  }
+  }]
+},
+{
+  path: '/map',
+  component: Layout,
+  name: 'map',
+  meta: {
+    title: '地图',
+    icon: 'el-icon-map-location'
+  },
+  children: [{
+    path: 'bmap',
+    name: 'bmap',
+    component: () => import('@/views/map/bmap'),
+    meta: {
+      title: '百度地图',
+      icon: ''
+    }
+  },
+  {
+    path: 'amap',
+    name: 'amap',
+    component: () => import('@/views/map/amap'),
+    meta: {
+      title: '高德地图',
+      icon: ''
+    }
+  }
+  ]
+},
 // 404 page must be placed at the end !!!
 {
   path: '*',

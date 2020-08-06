@@ -3,6 +3,7 @@
 @import './transition.scss';
 @import './element-ui.scss';
 @import './sidebar.scss';
+@import './base.scss';//自定义基础样式
 
 body {
   height: 100%;
@@ -57,9 +58,4 @@ div:focus {
     clear: both;
     height: 0;
   }
-}
-
-// main-container global css
-.app-container {
-  padding: 20px;
 }

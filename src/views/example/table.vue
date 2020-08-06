@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-card class="box-card" body-style="padding:5px">
+    <el-card class="box-card">
       <div slot="header" class="clearfix">
         <span>分组列表</span>
         <el-button type="primary" size="mini" style="float: right;">添加</el-button>
@@ -12,8 +12,8 @@
           </el-form-item>
           <el-form-item label="分组">
             <el-select v-model="query.params.groupId" placeholder="请选择分组">
-              <el-option label="所有" value="-1">所有</el-option>
-              <el-option label="11" value="1">11</el-option>
+              <el-option label="所有" value="-1"></el-option>
+              <el-option label="11" value="1"></el-option>
             </el-select>
           </el-form-item>
           <el-button type="primary" size="mini" @click="fetchData">搜索</el-button>
