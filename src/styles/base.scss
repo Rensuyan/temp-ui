@@ -1,17 +1,30 @@
 
-.app-container{
-  padding: 10px;
-}
+//容器
 .main-container{
   background: #ebf2fd;
 }
+.app-container{
+  padding: 10px;
+  //background: #fff;
+}
 //字体
 body,
+.el-table,
 .el-card{
    font-size: 14px;
    color: #333;
 }
-//card 卡片
+//布局
+
+.el-row+.el-row{
+  margin-top: 5px;
+}
+//导航nav
+.el-submenu .el-menu-item{
+  height: 40px;
+  line-height: 40px;
+}
+//卡片card
 .el-card{
   .el-card__header{
     line-height: 28px;
@@ -20,20 +33,57 @@ body,
     padding: 5px 10px;
   }
 }
-//表单
+//按钮重新调整button
+.el-button--small, .el-button--small.is-round{
+  padding: 7px 10px;
+  font-size: 14px;
+}
+.el-button--mini, .el-button--mini.is-round{
+  padding: 3px 5px;
+}
+//表单form
 .el-form{
   .el-form-item,
-  .el-form-item--mini.el-form-item, .el-form-item--small.el-form-item{
+  .el-form-item--mini.el-form-item,
+  .el-form-item--small.el-form-item{
     margin-bottom: 5px;
   }
+  .el-input{
+    width: auto;
+    input{
+      width: 190px;
+    }
+  }
+  .el-textarea{
+    textarea{
+      width: 380px;
+    }
+  }
+  .el-input-number .el-input input{
+    width: 100%;
+  }
 }
-//布局
-
-.el-row+.el-row{
-  margin-top: 5px;
+//表格table
+.el-table--mini td,
+.el-table--mini th{
+  padding: 3px 0px;
 }
-//导航
-.el-submenu .el-menu-item{
-  height: 40px;
-  line-height: 40px;
+//弹框
+.el-dialog{
+  .el-dialog__title{
+    font-size: 14px;
+    line-height: unset;
+  }
+  .el-dialog__header{
+    padding: 10px 10px;
+    background-color: #F8F8F8;
+  }
+  .el-dialog__body,
+  .el-dialog__footer{
+    padding: 5px 10px;
+  }
+  .el-dialog__headerbtn{
+    top: 9px;
+    right: 10px;
+  }
 }

@@ -2,7 +2,7 @@ import bmap from '@/utils/map/b-map'
 
 let func = new Function();
 func.prototype.mObj = null;
-func.prototype.init = function(type) {
+func.prototype.init = function(type, m, bm) {
   switch (type) {
     case 1:
       //百度
@@ -17,15 +17,9 @@ func.prototype.init = function(type) {
     default:
       this.mObj = new bmap()
   }
-}
-//初始化地图
-func.prototype.initMap = function(config, type, callback) {
-  this.init(type);
-  return this.mObj.initMap(config, callback);
-}
-//重载
-func.prototype.reload = function(config) {
-  this.initMap(config);
+  if(m) this.mObj.setMap(m);
+  if(bm) this.mObj.setMapObj(bm);
+  this.mObj.initMap();
 }
 //获得地图
 func.prototype.getMap = function() {
@@ -211,28 +205,9 @@ func.prototype.getPolygonContains = function(polygon) {
 func.prototype.batchMoveMarkersByPolygon = function(markers, polygon, callback) {
   this.mObj.batchMoveMarkersByPolygon(markers, polygon, callback);
 }
-//绘制点轨迹图（需要引入mapv、mapvgl）
-func.prototype.drawVPoint = function(data) {
-  return this.mObj.drawVPoint(data);
-}
-//新建mapvgl View
-func.prototype.createMapvglView = function() {
-  return this.mObj.createMapvglView();
-}
-//设置view中layer的值
-func.prototype.setMapvglLayer = function(view, layers, data) {
-  return this.mObj.setMapvglLayer(view, layers, data);
-}
-//删除图管理容器（需要引入mapvgl）
-func.prototype.destroyView = function(view) {
-  this.mObj.destroyView(view);
-}
+
 //添加自定义DOM元素的工具，element DOM元素
 func.prototype.addDOMControl = function(element) {
   this.mObj.addDOMControl(element);
-}
-//添加海量点
-func.prototype.addPointCollection = function(data) {
-  this.mObj.addPointCollection(data);
 }
 export default func

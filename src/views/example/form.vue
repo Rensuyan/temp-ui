@@ -11,16 +11,15 @@
         </el-select>
       </el-form-item>
       <el-form-item label="活动时间">
-        <el-col :span="11">
-          <el-date-picker v-model="form.date1" type="date" placeholder="选择日期" style="width: 100%;" />
-        </el-col>
-        <el-col :span="2" class="line">-</el-col>
-        <el-col :span="11">
-          <el-time-picker v-model="form.date2" type="fixed-time" placeholder="选择时间" style="width: 100%;" />
-        </el-col>
+          <el-date-picker v-model="form.date1" type="date" placeholder="选择日期"/>
+          -
+          <el-time-picker v-model="form.date2" type="fixed-time" placeholder="选择时间" />
       </el-form-item>
       <el-form-item label="即时送达">
         <el-switch v-model="form.delivery" />
+      </el-form-item>
+      <el-form-item label="活动人数">
+        <el-input-number v-model="form.num"  :min="1" :max="100" label="描述文字"></el-input-number>
       </el-form-item>
       <el-form-item label="活动类型">
         <el-checkbox-group v-model="form.type">
@@ -58,6 +57,7 @@ export default {
         delivery: false,
         type: [],
         resource: '',
+        num: 20,
         desc: ''
       }
     }
@@ -77,6 +77,9 @@ export default {
 </script>
 
 <style scoped>
+/* .demo-form .el-form-item{
+  display: block;
+} */
 .line{
   text-align: center;
 }
